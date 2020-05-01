@@ -2,11 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Private Page</title>
+    <title>Edit Room</title>
 </head>
 <body>
-
-    This is private page
+    <h1>Edit Room</h1>
 
 </body>
 </html>

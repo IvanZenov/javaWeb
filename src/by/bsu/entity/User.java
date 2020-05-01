@@ -1,4 +1,5 @@
 package by.bsu.entity;
+import by.bsu.entity.enums.Role;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -9,14 +10,16 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@EqualsAndHashCode
+
 public class User {
-    private int id;
+    private Long id;
     private String firstName;
     private String secondName;
     private String email;
     private String password;
-    private List<Faculty> facultyList = new ArrayList<>();
+    private Role role;
+    private String phoneNumber;
+    private double money;
 
     public User(String firstName, String secondName, String email, String password) {
         this.firstName = firstName;
