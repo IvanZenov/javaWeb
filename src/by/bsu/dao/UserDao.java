@@ -3,6 +3,7 @@ package by.bsu.dao;
 import by.bsu.connection.ConnectionManager;
 import by.bsu.entity.User;
 import by.bsu.entity.enums.Role;
+import by.bsu.entity.enums.Status;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -84,7 +85,7 @@ public class UserDao implements GenericDao<User>{
                         resultSet.getString("second_name"),
                         resultSet.getString("email"),
                         resultSet.getString("password"),
-                        Role.USER,
+                        Role.valueOf(resultSet.getString("role")),
                         resultSet.getString("phone_number"),
                         resultSet.getDouble("money")
                 );
@@ -118,19 +119,31 @@ public class UserDao implements GenericDao<User>{
         return users;
     }
 
-    public static boolean validate(String email, String password){
+    public static User validate(String email, String password){
         try(Connection connection = ConnectionManager.newConnection()) {
+
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE email = ? AND password = ?");
             preparedStatement.setString(1,email);
             preparedStatement.setString(2,password);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.next();
+            if (resultSet.next()){
+                return new User(
+                        resultSet.getLong("id"),
+                        resultSet.getString("first_name"),
+                        resultSet.getString("second_name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password"),
+                        Role.valueOf(resultSet.getString("role")),
+                        resultSet.getString("phone_number"),
+                        resultSet.getDouble("money")
+                );
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return null;
     }
 
     public void deposit (Long id, double amount){
@@ -144,4 +157,6 @@ public class UserDao implements GenericDao<User>{
             e.printStackTrace();
         }
     }
+
+
 }

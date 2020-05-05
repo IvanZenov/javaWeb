@@ -10,8 +10,8 @@ import java.util.Set;
 public class UserService {
     private static UserService INSTANCE;
 
-    public UserDto save(User artist){
-        User savedArtist = UserDao.getInstance().create(artist);
+    public UserDto save(User user){
+        User savedArtist = UserDao.getInstance().create(user);
         return new UserDto(savedArtist.getId(),savedArtist.getFirstName(), savedArtist.getEmail());
     }
 

@@ -21,10 +21,15 @@ public class User {
     private String phoneNumber;
     private double money;
 
-    public User(String firstName, String secondName, String email, String password) {
+    public User(String firstName, String secondName, String email, String password, String phoneNumber) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.email = email;
         this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.money = 0;
+        this.role = Role.USER;
     }
+
+
 }

@@ -7,7 +7,7 @@
 <body>
     <h1>Add New</h1>
     <div style="width: 900px; margin-outside: auto; margin-right: auto">
-        <form action="${pageContext.request.contextPath}/addNewRoom" method="post">
+        <form action="${pageContext.request.contextPath}/admin/addNewRoom" method="post">
             <label>
                 Image Url: <br>
                 <input type="text" name="imageUrl"><br>

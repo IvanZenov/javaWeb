@@ -14,7 +14,7 @@ import java.io.IOException;
 
 import static by.bsu.util.ServletUtil.createViewPath;
 
-@WebServlet("/addNewRoom")
+@WebServlet("/admin/addNewRoom")
 public class AddRoomServlet extends HttpServlet {
 
     @Override

@@ -25,6 +25,7 @@
         <th>Places</th>
         <th>Price Per Night</th>
         <th>Free</th>
+        <th>Action</th>
     </tr>
     </thead>
     <c:forEach items="${requestScope.rooms}" var="room">
@@ -36,6 +37,10 @@
                 <td>${room.places}</td>
                 <td>${room.dailyPrice} $</td>
                 <td>${room.free}</td>
+                <td>
+                    <a href="reserve?id=${room.id}">Reserve</a>
+                </td>
+
             </tr>
         </tbody>
     </c:forEach>

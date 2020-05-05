@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.stream.Collectors;
 
 @WebServlet("/rooms")
 public class ShowAllRoomsServlet extends HttpServlet {
@@ -24,5 +22,4 @@ public class ShowAllRoomsServlet extends HttpServlet {
                 .forward(req,resp);
 
     }
-
 }

@@ -10,6 +10,8 @@
     <br>
     Password: <input type="password" name="password">
     <br>
+    <a href="registration">Registration</a>
+    <br>
     <input type="submit" value="Login">
 </form>
 
