@@ -18,4 +18,13 @@ public class Reservation {
     private Date arrival;
     private Date checkout;
     private Status status;
+
+
+    public Reservation(Long userId, Long roomId, Date arrival, Date checkout) {
+        this.userId = userId;
+        this.roomId = roomId;
+        this.arrival = arrival;
+        this.checkout = checkout;
+        this.status = Status.NOT_CONSIDERED;
+    }
 }

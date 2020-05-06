@@ -1,9 +1,5 @@
 package servlet;
 
-import by.bsu.entity.User;
-import by.bsu.service.ReservationService;
-import by.bsu.service.RoomService;
-import by.bsu.service.UserService;
 import by.bsu.util.ServletUtil;
 
 import javax.servlet.ServletException;
@@ -13,13 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/profile")
-public class ProfileServlet extends HttpServlet {
+@WebServlet("/ajax")
+public class AjaxDemoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext()
-                .getRequestDispatcher(ServletUtil.createViewPath("profile"))
+
+        getServletContext().getRequestDispatcher(ServletUtil.createViewPath("ajax-demo"))
                 .forward(req,resp);
 
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
 }
+

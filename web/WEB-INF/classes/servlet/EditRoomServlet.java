@@ -16,6 +16,7 @@ public class EditRoomServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("rooms",RoomService.getInstance().getAll());
+
         getServletContext()
                 .getRequestDispatcher(ServletUtil.createViewPath("edit-room"))
                 .forward(req,resp);

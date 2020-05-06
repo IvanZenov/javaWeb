@@ -2,7 +2,6 @@ package by.bsu.service;
 
 
 import by.bsu.dao.UserDao;
-import by.bsu.dto.UserDto;
 import by.bsu.entity.User;
 
 import java.util.Set;
@@ -10,17 +9,17 @@ import java.util.Set;
 public class UserService {
     private static UserService INSTANCE;
 
-    public UserDto save(User user){
+    public User save(User user){
         User savedArtist = UserDao.getInstance().create(user);
-        return new UserDto(savedArtist.getId(),savedArtist.getFirstName(), savedArtist.getEmail());
+        return savedArtist;
     }
 
-    public UserDto findOneById(Long id){
+    public User findOneById(Long id){
         User foundUser = UserDao.getInstance().findById(id);
         if (foundUser == null) {
             return null;
         }
-        return new UserDto(foundUser.getId(),foundUser.getFirstName(),foundUser.getEmail());
+        return foundUser;
     }
 
     public Set<User> findAll (){

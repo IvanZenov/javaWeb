@@ -112,7 +112,7 @@ public class RoomDao implements GenericDao<Room>{
     @Override
     public Room findById(Long id) {
         try(Connection connection = ConnectionManager.newConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM room WHERE id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM room WHERE id = ?;");
             preparedStatement.setLong(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()){

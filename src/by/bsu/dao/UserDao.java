@@ -9,9 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class UserDao implements GenericDao<User>{
@@ -72,13 +70,13 @@ public class UserDao implements GenericDao<User>{
     @Override
     public User findById(Long id) {
         try(Connection connection = ConnectionManager.newConnection()) {
-            String sql ="SELECT * FROM users AS a WHERE a.id = ?;";
+            String sql ="SELECT * FROM users AS u WHERE u.id = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setLong(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()){
-                //TODO: change Role.USER to resultSet.getString -> and get string ADMIN/USER
+
                 return new User(
                         resultSet.getLong("id"),
                         resultSet.getString("first_name"),

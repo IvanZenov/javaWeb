@@ -38,7 +38,11 @@
                 <td>${room.dailyPrice} $</td>
                 <td>${room.free}</td>
                 <td>
-                    <a href="reserve?id=${room.id}">Reserve</a>
+                    <c:choose>
+                        <c:when test="${room.free eq true}">
+                            <a href="reserve?id=${room.id}">Reserve</a>
+                        </c:when>
+                    </c:choose>
                 </td>
 
             </tr>

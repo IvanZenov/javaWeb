@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -5,23 +6,44 @@
     <title>All Reservation</title>
 </head>
 <body>
-<c:forEach items="${requestScope.reservations}" var="reserv">
-    <tbody>
+<table class="container">
+    <thead>
     <tr>
-        <td>${reserv.id}</td>
-        <td>${reserv.user_id}</td>
-        <td>${reserv.room_id}</td>
-        <td>${reserv.arrival}</td>
-        <td>${reserv.checkout}</td>
-        <td>${reserv.status}</td>
-        <td>
-            <!-- TODO: dropdown menu with admin action -->
-          <!--  <a methods="post" act="${pageContext.request.contextPath}/admin/reservation?id=?">Reserve</a> -->
-        </td>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Room ID</th>
+        <th>Arrival</th>
+        <th>Checkout</th>
+        <th>Status</th>
+        <th>Admin Decision</th>
+        <th></th>
 
     </tr>
-    </tbody>
-</c:forEach>
+    </thead>
+    <c:forEach items="${requestScope.reservations}" var="reserv">
+        <tbody>
+        <tr>
+            <td>${reserv.id}</td>
+            <td>${reserv.userId}</td>
+            <td>${reserv.roomId}</td>
+            <td>${reserv.arrival}</td>
+            <td>${reserv.checkout} $</td>
+            <td>${reserv.status}</td>
+            <td>
+                <label>
+                    <select name="statusId" id="status-id">
+                        <option>Confirm</option>
+                        <option>Reject</option>
+                    </select>
+                </label>
+            </td>
+            <td>
+                <button type="button" onclick="sendDataToServer()">Send Decision</button>
+            </td>
+        </tr>
+        </tbody>
+    </c:forEach>
+</table>
 
 </body>
 </html>

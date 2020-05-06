@@ -8,9 +8,9 @@ import java.util.Set;
 public class ReservationService {
     private static ReservationService INSTANCE;
 
-    public Reservation getRoomById(Long id){
-        Reservation roomById = ReservationDao.getInstance().findById(id);
-        return roomById;
+    public Reservation getReservationById(Long id){
+        Reservation reservationById = ReservationDao.getInstance().findById(id);
+        return reservationById;
     }
 
     public Set<Reservation> getAll(){

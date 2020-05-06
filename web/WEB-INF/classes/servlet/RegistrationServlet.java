@@ -19,14 +19,12 @@ import static by.bsu.util.ServletUtil.createViewPath;
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         getServletContext()
                 .getRequestDispatcher(createViewPath("registration"))
                 .forward(req,resp);
     }
-
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -75,7 +75,7 @@ public class ReservationDao implements GenericDao<Reservation>{
     public Set<Reservation> findAll() {
         Set<Reservation> reservations = new HashSet<>();
         try(Connection connection = ConnectionManager.newConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from reservation");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from reservation;");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 reservations.add(new Reservation(
