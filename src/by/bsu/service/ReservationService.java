@@ -1,6 +1,7 @@
 package by.bsu.service;
 
 import by.bsu.dao.ReservationDao;
+import by.bsu.dto.ReservationDto;
 import by.bsu.entity.Reservation;
 
 import java.util.Set;
@@ -21,6 +22,11 @@ public class ReservationService {
     public Reservation save (Reservation reservation){
         ReservationDao.getInstance().create(reservation);
         return reservation;
+    }
+
+    public Set<Reservation> getAllReservationByUserId(Long userId){
+        Set<Reservation> reservations = ReservationDao.getInstance().getAllReservationByUserId(userId);
+        return reservations;
     }
 
 

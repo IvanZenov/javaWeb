@@ -114,6 +114,7 @@ public class ReservationDao implements GenericDao<Reservation>{
         return reservations;
     }
 
+
     public static ReservationDao getInstance(){
         if (INSTANCE == null){
             synchronized (ReservationDao.class){

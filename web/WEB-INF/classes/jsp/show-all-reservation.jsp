@@ -4,6 +4,9 @@
 <html>
 <head>
     <title>All Reservation</title>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/script.js"></script>
+
 </head>
 <body>
 <table class="container">
@@ -23,7 +26,7 @@
     <c:forEach items="${requestScope.reservations}" var="reserv">
         <tbody>
         <tr>
-            <td>${reserv.id}</td>
+            <td id="reservationId">${reserv.id}</td>
             <td>${reserv.userId}</td>
             <td>${reserv.roomId}</td>
             <td>${reserv.arrival}</td>
@@ -38,7 +41,7 @@
                 </label>
             </td>
             <td>
-                <button type="button" onclick="sendDataToServer()">Send Decision</button>
+                <button type="button" onclick="applyReservation()">Send Decision</button>
             </td>
         </tr>
         </tbody>

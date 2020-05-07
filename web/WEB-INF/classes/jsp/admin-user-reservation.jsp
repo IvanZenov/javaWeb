@@ -25,19 +25,19 @@
     <c:forEach items="${requestScope.reservations}" var="reservation">
         <tbody>
         <tr>
-            <td>${reservation.id}</td>
-            <td>${reservation.user_id}</td>
+            <td id="reservationId">${reservation.id}</td>
+            <td id="userId">${reservation.user_id}</td>
             <td>${reservation.room_id}</td>
             <td>${reservation.arrival}</td>
             <td>${reservation.checkout} $</td>
             <td>${reservation.status}</td>
             <td>
-                <select name="statusId">
+                <select name="statusId" id="status">
                     <option>Confirm</option>
                     <option>Reject</option>
                 </select>
             </td>
-            <td><button type="button" onclick="apllyReservation()"></button></td>
+            <td><button type="button" onclick="applyReservation()"></button></td>
 
         </tr>
         </tbody>
