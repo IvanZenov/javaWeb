@@ -1,14 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zevs
-  Date: 05.05.2020
-  Time: 22:40
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Admin Reservation</title>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/script.js"></script>
+
 </head>
 <body>
 
@@ -22,6 +19,7 @@
         <th>Checkout</th>
         <th>Status</th>
         <th>Action Status</th>
+        <th>Apply</th>
     </tr>
     </thead>
     <c:forEach items="${requestScope.reservations}" var="reservation">
@@ -39,6 +37,7 @@
                     <option>Reject</option>
                 </select>
             </td>
+            <td><button type="button" onclick="apllyReservation()"></button></td>
 
         </tr>
         </tbody>

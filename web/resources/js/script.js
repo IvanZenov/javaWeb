@@ -1,13 +1,4 @@
-function sendDataToServer() {
-    let inputValue = $("#data").val();
-    $.ajax({
-        url:'/ajax',
-        method: 'POST',
-        data: JSON.stringify({
-            message: inputValue
-        })
-    })
-}
+//TODO: fix login function;
 
 function login() {
     let email = $("#email").val();
@@ -15,20 +6,18 @@ function login() {
     let loginStatus = $("#login-status").val();
 
     if (email==""){
-
-        loginStatus.text("Input email!");
         return false;
     }
     else if (password == ""){
         password.parent('td').addClass('has-error');
-        loginStatus.text("Input password!");
         return false;
     }
     else {
+        console.log("Stat","djfkajdskfa");
         $.ajax(
             {
                 type: 'POST',
-                url: '/login',
+                url: '/javaEE_war_exploded/login',
                 data:JSON.stringify(
                     {
                         email: email,
@@ -36,9 +25,7 @@ function login() {
                     }
                 )
             }
-        ).done(function (data) {
-            loginStatus.text(data.outputMessage)
-        });
+        ).done();
     }
 
     

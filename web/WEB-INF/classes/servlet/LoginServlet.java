@@ -28,10 +28,14 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Gson gson = new Gson();
+        /*Gson gson = new Gson();
         UserLoginDto userDtoLogin = gson.fromJson(req.getReader().lines().collect(joining("\n")), UserLoginDto.class);
-        resp.setContentType("application/json");
+        //resp.setContentType("application/json");
         User currentUser = UserDao.validate(userDtoLogin.getEmail(),userDtoLogin.getPassword());
+         */
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        User currentUser = UserDao.validate(email,password);
         if (currentUser!=null){
             req.getSession().setAttribute("currentUser", currentUser);
             resp.sendRedirect(PathUtil.LOCALHOST + "/rooms");

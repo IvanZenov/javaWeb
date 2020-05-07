@@ -14,8 +14,8 @@
     <br>
     <a href="registration">Registration</a>
     <br>
-    <input type="submit" value="Login" onclick="login()">
-    <p id="login-status"></p>
+    <input type="submit" value="Login">
+
 </form>
 
 </body>
